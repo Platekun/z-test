@@ -1,0 +1,16 @@
+.Wrapper {
+  max-width: 1021px;
+  padding: 0 calc(var(--space) * 4);
+}
+
+@media screen and (min-width: 940px) {
+  .Wrapper {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1021px) {
+  .Wrapper {
+    padding: unset;
+  }
+}

@@ -1,0 +1,212 @@
+.Header {
+  height: var(--appbar-height);
+  display: grid;
+  align-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--java);
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  z-index: var(--zindex-appbar);
+}
+
+.Header .Wrapper {
+  display: grid;
+  align-content: center;
+  grid-template-columns: 1fr 32px;
+}
+
+.Header .Header__logo a {
+  --font-size: calc(var(--space) * 5);
+
+  display: grid;
+  align-items: center;
+  color: white;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-book);
+  grid-template-columns: calc(var(--space) * 6) auto;
+  column-gap: calc(var(--space) * 2);
+  margin: 0;
+}
+
+.Header .Header__logo svg {
+  --width: calc(var(--space) * 6);
+
+  fill: white;
+  width: var(--width);
+}
+
+.Header .Header__menu-button {
+  width: inherit;
+  padding: unset;
+  background-color: transparent;
+  border: none;
+}
+
+.Header .Header__desktop-nav {
+  display: none;
+}
+
+.NavigationDrawer {
+  background-color: var(--java);
+  height: calc(100% + var(--appbar-height));
+  width: 100%;
+  transform: translateX(0%);
+  opacity: 1;
+  transition: ease transform var(--transition-time),
+    opacity calc(var(--transition-time) * 2);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  z-index: var(--zindex-drawer);
+  position: fixed;
+}
+
+.NavigationDrawer.NavigationDrawer--collapsed {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.NavigationDrawer .Wrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.NavigationDrawer .NavigationDrawer-button {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: calc(var(--space) * 4);
+  right: calc(var(--space) * 4);
+  width: calc(var(--space) * 10);
+  height: calc(var(--space) * 10);
+}
+
+.Header .Header__menu-button svg,
+.NavigationDrawer .NavigationDrawer-button svg {
+  --fill: white;
+
+  fill: var(--fill);
+  transition: ease-in fill var(--transition-time);
+}
+
+.Header .Header__menu-button:hover svg,
+.Header .Header__menu-button:focus svg,
+.NavigationDrawer .NavigationDrawer-button:focus svg {
+  --fill: var(--java-dark);
+}
+
+.Header .Header__menu-button:active svg,
+.NavigationDrawer .NavigationDrawer-button:active svg {
+  --fill: var(--java-darkness);
+}
+
+.NavigationDrawer ul {
+  display: grid;
+  row-gap: calc(var(--space) * 10);
+}
+
+.NavigationDrawer a {
+  color: var(--color);
+  font-size: calc(var(--space) * 5);
+  text-align: center;
+  font-weight: var(--font-weight-book);
+  display: block;
+  width: 100%;
+  transition: ease-in color var(--transition-time);
+}
+
+.NavigationDrawer a,
+.NavigationDrawer a:link {
+  --color: white;
+}
+
+.NavigationDrawer a:hover,
+.NavigationDrawer a:focus {
+  color: var(--java-dark);
+}
+
+.NavigationDrawer a:active {
+  color: var(--java-darkness);
+}
+
+@media screen and (min-width: 768px) {
+  .Header .Header__logo a,
+  .NavigationDrawer a {
+    --font-size: calc(var(--space) * 7);
+
+    font-size: var(--font-size);
+  }
+
+  .Header .Header__logo svg {
+    --width: calc(var(--space) * 7);
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .Header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    box-shadow: unset;
+    background-image: linear-gradient(
+      to top,
+      rgba(51, 51, 51, 0) 0%,
+      rgba(51, 51, 51, 0.53) 49%,
+      rgba(51, 51, 51, 0.82) 100%
+    );
+  }
+
+  .Header .Wrapper {
+    width: 100%;
+    align-content: center;
+    grid-template-columns: 1fr auto;
+  }
+
+  .Header .Header__logo {
+    font-size: calc(var(--space) * 8);
+  }
+
+  .Header__menu-button {
+    display: none;
+  }
+
+  .Header .Header__logo a {
+    width: fit-content;
+  }
+
+  .Header .Header__desktop-nav {
+    display: grid;
+    align-items: center;
+  }
+
+  .Header .Header__desktop-nav .Wrapper {
+    padding: 0;
+  }
+
+  .Header .Header__desktop-nav ul {
+    display: flex;
+  }
+
+  .Header .Header__desktop-nav li {
+    text-align: center;
+    margin: 0 calc(var(--space) * 3);
+  }
+
+  .Header .Header__desktop-nav a,
+  .Header .Header__desktop-nav a:link {
+    color: white;
+  }
+
+  .Header .Header__desktop-nav svg {
+    width: calc(var(--space) * 6);
+    height: calc(var(--space) * 6);
+    fill: white;
+  }
+}

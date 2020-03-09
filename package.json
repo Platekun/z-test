@@ -1,0 +1,58 @@
+{
+  "author": "Carlos Camilo Lobo Ulloque",
+  "name": "zemoga-ui-test",
+  "version": "1.0.0",
+  "description": "Rules of Thumb's voting app",
+  "keywords": [
+    "zemoga",
+    "front-end development",
+    "UI",
+    "React"
+  ],
+  "main": "src/index.js",
+  "dependencies": {
+    "@xstate/react": "0.8.1",
+    "body-scroll-lock": "^2.6.4",
+    "clsx": "1.1.0",
+    "cross-fetch": "^3.0.4",
+    "cuid": "2.1.8",
+    "date-fns": "1.30.1",
+    "lodash.isnull": "^3.0.0",
+    "lodash.isundefined": "^3.0.1",
+    "mobx": "^5.15.4",
+    "mobx-react-lite": "^1.5.2",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-onclickout": "^2.0.8",
+    "react-router-dom": "5.1.2",
+    "react-scripts": "3.0.1",
+    "xstate": "4.8.0"
+  },
+  "devDependencies": {
+    "@testing-library/cypress": "^5.3.0",
+    "@types/body-scroll-lock": "^2.6.1",
+    "@types/jest": "^25.1.3",
+    "@types/jquery": "^3.3.33",
+    "@types/lodash.isnull": "^3.0.6",
+    "@types/lodash.isundefined": "^3.0.6",
+    "@types/node": "^13.7.7",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-router-dom": "^5.1.3",
+    "cypress": "^4.1.0",
+    "typescript": "^3.4.5"
+  },
+  "scripts": {
+    "start": "PORT=8080 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "cy:open": "cypress open"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

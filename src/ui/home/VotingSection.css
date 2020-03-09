@@ -1,0 +1,152 @@
+.VotingSection {
+  --vertical-padding: calc(var(--space) * 4);
+  --horizontal-padding: calc(var(--space) * 3);
+}
+
+.VotingSection .VotingSection__title {
+  font-weight: var(--font-weight-light);
+  color: var(--mine-shaft);
+}
+
+.VotingSection .VotingSection__trials {
+  --column-width: 492px;
+  --row-height: 400px;
+  --row-gap: var(--vertical-padding);
+
+  display: grid;
+  grid-auto-rows: var(--row-height);
+  row-gap: var(--row-gap);
+}
+
+@media screen and (min-width: 480px) {
+  .VotingSection {
+    --vertical-padding: calc(var(--space) * 6);
+    --horizontal-padding: calc(var(--space) * 5);
+  }
+
+  .VotingSection .VotingSection__trials {
+    display: grid;
+    column-gap: var(--row-gap);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(calc(var(--column-width) / 2), var(--column-width))
+    );
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .VotingSection .VotingSection__trials {
+    --row-height: 550px;
+
+    grid-template-rows: var(--row-height);
+  }
+}
+
+.VotingSection .VotingSection__footer {
+  background-image: url("./footer-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 180px;
+  margin-top: calc(var(--space) * 12);
+}
+
+.VotingSection .VotingSection__footer-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--space) * 4);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.VotingSection .VotingSection__footer-message {
+  --font-size: initial;
+  --text-align: center;
+
+  color: var(--mine-shaft);
+  margin-top: 0;
+  font-size: var(--font-size);
+  text-align: var(--text-align);
+  font-weight: var(--font-weight-light);
+}
+
+.VotingSection .VotingSection__footer-button {
+  background-color: transparent;
+  border: 2px solid var(--mine-shaft);
+  padding: calc(var(--space) * 2) 0;
+  width: 100%;
+  max-width: 201px;
+  transition: ease-in background-color var(--transition-time),
+    ease-in border-color var(--transition-time);
+}
+
+.VotingSection .VotingSection__footer-button:hover,
+.VotingSection .VotingSection__footer-button:focus {
+  background-color: var(--java-dark);
+  border-color: transparent;
+}
+
+.VotingSection .VotingSection__footer-button:active {
+  background-color: var(--java);
+  border-color: transparent;
+}
+
+.VotingSection .VotingSection__footer-button span {
+  display: block;
+  width: 100%;
+  color: var(--mine-shaft);
+  font-weight: var(--font-weight-book);
+  transition: ease-in color var(--transition-time);
+}
+
+.VotingSection .VotingSection__footer-button:hover span,
+.VotingSection .VotingSection__footer-button:focus span,
+.VotingSection .VotingSection__footer-button:active span {
+  color: white;
+}
+
+@media screen and (min-width: 480px) {
+  .VotingSection .VotingSection__footer-message {
+    --font-size: 22px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .VotingSection .VotingSection__footer-message {
+    --font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .VotingSection .VotingSection__title {
+    font-size: 40px;
+  }
+
+  .VotingSection .VotingSection__footer {
+    height: unset;
+  }
+
+  .VotingSection .VotingSection__footer-content {
+    display: grid;
+    grid-template-columns: 1fr 201px;
+    padding: calc(var(--space) * 3) calc(var(--space) * 6);
+  }
+
+  .VotingSection .VotingSection__footer-message {
+    --text-align: unset;
+
+    margin: 0;
+  }
+
+  .VotingSection .VotingSection__footer-button {
+    padding: calc(var(--space) * 4) 0;
+  }
+
+  .VotingSection .VotingSection__footer-button span {
+    font-size: 20px;
+  }
+}

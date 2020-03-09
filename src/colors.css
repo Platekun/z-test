@@ -1,0 +1,13 @@
+:root {
+  --my-sin: #ffad1d;
+  --my-sin-dark: #bd7800;
+  --my-sin-darkness: #784f08;
+  --my-sin-faded: rgba(255, 173, 29, 0.7);
+  --java: #1cbbb4;
+  --java-dark: #0a7f7a;
+  --java-darkness: #064b48;
+  --java-faded: rgba(28, 187, 180, 0.7);
+  --mine-shaft: #333333;
+  --dove-gray: #666666;
+  --gallery: #ebebeb;
+}

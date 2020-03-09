@@ -1,0 +1,125 @@
+.Footer {
+  margin-top: calc(var(--space) * 4);
+  padding-bottom: calc(var(--space) * 12);
+  max-width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.Footer .Footer__content {
+  border-top: 1px dashed var(--gallery);
+  padding-top: calc(var(--space) * 12);
+}
+
+.Footer a,
+.Footer p {
+  --color: var(--dove-gray);
+
+  color: var(--color);
+  transition: ease-in color var(--transition-time);
+}
+
+.Footer a:focus,
+.Footer a:hover {
+  --color: var(--mirage-shaft);
+}
+
+.Footer a:active {
+  --color: black;
+}
+
+.Footer .Footer__more-links {
+  display: grid;
+  row-gap: calc(var(--space) * 4);
+}
+
+.Footer .Footer__link {
+  display: flex;
+  justify-content: center;
+}
+
+.Footer .Footer__social-media-nav {
+  margin-top: calc(var(--space) * 12);
+}
+
+.Footer .Footer__follow-us {
+  text-align: center;
+  margin-bottom: calc(var(--space) * 5);
+}
+
+.Footer .Footer__social-media-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.Footer .Footer__facebook-icon,
+.Footer .Footer__twitter-icon {
+  --fill: var(--mirage-shaft);
+
+  fill: var(--fill);
+  transition: ease-in fill var(--transition-time);
+}
+
+.Footer a:focus .Footer__facebook-icon,
+.Footer a:hover .Footer__facebook-icon,
+.Footer a:active .Footer__facebook-icon {
+  --fill: #4267b2;
+}
+
+.Footer a:focus .Footer__twitter-icon,
+.Footer a:hover .Footer__twitter-icon,
+.Footer a:active .Footer__twitter-icon {
+  --fill: #1da1f2;
+}
+
+@media screen and (min-width: 768px) {
+  .Footer {
+    margin-top: calc(var(--space) * 8);
+    max-width: unset;
+  }
+
+  .Footer .Footer__content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding-top: calc(var(--space) * 6);
+  }
+
+  .Footer .Footer__more-links {
+    grid-template-columns: auto auto auto;
+    height: 100%;
+    align-items: center;
+    justify-content: start;
+    column-gap: calc(var(--space) * 5);
+  }
+
+  .Footer .Footer__social-media-nav {
+    margin: unset;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: calc(var(--space) * 2);
+    align-items: center;
+  }
+
+  .Footer .Footer__follow-us {
+    margin: 0;
+  }
+
+  .Footer .Footer__social-media-list {
+    column-gap: calc(var(--space) * 5);
+  }
+
+  .Footer .Footer__facebook-icon,
+  .Footer .Footer__twitter-icon {
+    width: calc(var(--space) * 7);
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .Footer a,
+  .Footer p {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,302 @@
+.TrialCard {
+  --vertical-padding: calc(var(--space) * 4);
+  --horizontal-padding: calc(var(--space) * 3);
+  --voting-bar-height: calc(var(--appbar-height) / 2);
+  --icon-badge-size: calc(var(--space) * 6);
+  --icon-badge-icon-size: calc(var(--space) * 4);
+  --voting-button-icon-size: calc(var(--space) * 6);
+
+  height: 100%;
+  position: relative;
+}
+
+@media screen and (min-width: 480px) {
+  .TrialCard {
+    --icon-badge-size: calc(var(--space) * 8);
+    --icon-badge-icon-size: calc(var(--space) * 5);
+    --voting-button-icon-size: calc(var(--space) * 6);
+  }
+}
+
+.TrialCard .TrialCard__content {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: var(--vertical-padding) var(--horizontal-padding);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: calc(var(--voting-bar-height) + calc(var(--space) * 2));
+}
+
+.TrialCard .TrialCard__upvoted,
+.TrialCard .TrialCard__downvoted {
+  --top: var(--vertical-padding);
+  --left: var(--vertical-padding);
+
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  padding: var(--space);
+  display: flex;
+  justify-content: center;
+}
+
+.TrialCard .TrialCard__upvoted,
+.TrialCard .TrialCard__downvoted {
+  width: var(--icon-badge-size);
+  height: var(--icon-badge-size);
+}
+
+.TrialCard .TrialCard__upvoted svg,
+.TrialCard .TrialCard__downvoted svg {
+  width: var(--icon-badge-icon-size);
+  height: var(--icon-badge-icon-size);
+}
+
+.TrialCard .TrialCard__upvoted {
+  background-color: var(--java);
+}
+
+.TrialCard .TrialCard__downvoted {
+  background-color: var(--my-sin);
+}
+
+.TrialCard .TrialCard__title {
+  font-weight: normal;
+  font-size: 22px;
+}
+
+.TrialCard .TrialCard__title,
+.TrialCard .TrialCard__category {
+  margin: 0;
+}
+
+.TrialCard .TrialCard__title,
+.TrialCard .TrialCard__topic,
+.TrialCard .TrialCard__category,
+.TrialCard .TrialCard__thank-you-message {
+  color: white;
+}
+
+.TrialCard .TrialCard__category {
+  font-size: 12px;
+}
+
+.TrialCard .TrialCard__category span {
+  font-weight: var(--font-weight-bold);
+}
+
+.TrialCard .TrialCard__footer {
+  height: 40px;
+  margin-bottom: calc(var(--space) * 2);
+}
+
+.TrialCard .TrialCard__voting-controls {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: calc(var(--space) * 3);
+  max-width: 300px;
+}
+
+.TrialCard .TrialCard__voting-control {
+  padding: var(--space);
+  border: none;
+  border: 2px solid transparent;
+  transition: ease-in border-color var(--transition-time),
+    ease-in background-color var(--transition-time);
+}
+
+.TrialCard .TrialCard__voting-control svg {
+  width: var(--voting-button-icon-size);
+  height: var(--voting-button-icon-size);
+}
+
+.TrialCard .TrialCard__voting-control[data-selected="true"] {
+  border-color: white;
+}
+
+.TrialCard .TrialCard__voting-upvote-control {
+  background-color: var(--java);
+}
+
+.TrialCard .TrialCard__voting-upvote-control:focus,
+.TrialCard .TrialCard__voting-upvote-control:hover {
+  background-color: var(--java-dark);
+}
+
+.TrialCard .TrialCard__voting-upvote-control:active {
+  background-color: var(--java-darkness);
+}
+
+.TrialCard .TrialCard__voting-downvote-control {
+  background-color: var(--my-sin);
+}
+
+.TrialCard .TrialCard__voting-downvote-control:focus,
+.TrialCard .TrialCard__voting-downvote-control:hover {
+  background-color: var(--my-sin-dark);
+}
+
+.TrialCard .TrialCard__voting-downvote-control:active {
+  background-color: var(--my-sin-darkness);
+}
+
+.TrialCard .TrialCard__voting-submit-control {
+  --border-color: white;
+  --color: white;
+
+  border: 1px solid var(--border-color);
+  color: var(--color);
+  background-color: transparent;
+
+  transition: ease-in border-color var(--transition-time),
+    ease-in color var(--transition-time);
+}
+
+.TrialCard .TrialCard__voting-submit-control:focus,
+.TrialCard .TrialCard__voting-submit-control:hover {
+  --border-color: var(--java);
+  --color: var(--java);
+}
+
+.TrialCard .TrialCard__voting-submit-control[data-vote="upvote"]:active {
+  --border-color: var(--java-dark);
+  --color: var(--java-dark);
+}
+
+.TrialCard .TrialCard__voting-submit-control[data-vote="downvote"]:focus,
+.TrialCard .TrialCard__voting-submit-control[data-vote="downvote"]:hover {
+  --border-color: var(--my-sin);
+  --color: var(--my-sin);
+}
+
+.TrialCard .TrialCard__voting-submit-control[data-vote="downvote"]:active {
+  --border-color: var(--my-sin-dark);
+  --color: var(--my-sin-dark);
+}
+
+.TrialCard .TrialCard__voting-submit-control:disabled {
+  --border-color: transparent;
+  --color: var(--dove-gray);
+}
+
+/* TODO: Extract into component */
+.TrialCard .TrialCard__vote-again-button {
+  --color: white;
+
+  border: 1px solid var(--color);
+  background-color: transparent;
+  color: var(--color);
+  padding: calc(var(--space) * 2) calc(var(--space) * 3);
+}
+
+.TrialCard .TrialCard__voting-bar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: var(--voting-bar-height);
+  display: flex;
+}
+
+.TrialCard .TrialCard__voting-bar-upvotes {
+  background-color: var(--java-faded);
+}
+
+.TrialCard .TrialCard__voting-bar-downvotes {
+  background-color: var(--my-sin-faded);
+}
+
+.TrialCard .TrialCard__voting-bar-upvotes,
+.TrialCard .TrialCard__voting-bar-downvotes {
+  display: flex;
+}
+
+.TrialCard .TrialCard__voting-bar-upvotes {
+  --padding-left: calc(var(--space) * 4);
+
+  justify-content: flex-start;
+  padding-left: var(--padding-left);
+}
+
+.TrialCard .TrialCard__voting-bar-downvotes {
+  --padding-right: calc(var(--space) * 4);
+
+  justify-content: flex-end;
+  padding-right: var(--padding-right);
+}
+
+.TrialCard .TrialCard__vote-count {
+  color: white;
+  font-weight: var(--font-weight-light);
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.TrialCard .TrialCard__voting-bar-vote-icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.TrialCard .TrialCard__voting-bar svg {
+  width: calc(var(--space) * 5);
+  margin-right: calc(var(--space) * 2);
+  height: inherit;
+}
+
+@media screen and (min-width: 940px) {
+  .TrialCard .TrialCard__content {
+    position: relative;
+    padding-left: calc(var(--icon-badge-size) + calc(var(--space) * 2));
+  }
+
+  .TrialCard .TrialCard__header {
+    position: relative;
+  }
+
+  .TrialCard .TrialCard__upvoted,
+  .TrialCard .TrialCard__downvoted {
+    --left: calc(calc(var(--icon-badge-size) + var(--space)) * -1);
+    --top: calc(var(--space) * 2.5);
+  }
+
+  .TrialCard .TrialCard__title {
+    font-size: 45px;
+  }
+
+  .TrialCard .TrialCard__category {
+    margin-top: var(--space);
+  }
+
+  .TrialCard .TrialCard__footer {
+    margin-bottom: calc(var(--space) * 6);
+  }
+
+  .TrialCard .TrialCard__voting-bar {
+    height: calc(var(--space) * 12);
+  }
+
+  .TrialCard .TrialCard__voting-bar-upvotes {
+    --padding-left: calc(var(--space) * 2);
+  }
+
+  .TrialCard .TrialCard__voting-bar-downvotes {
+    --padding-right: calc(var(--space) * 2);
+  }
+
+  .TrialCard .TrialCard__vote-count {
+    font-size: 28px;
+  }
+
+  .TrialCard .TrialCard__voting-bar svg {
+    width: calc(var(--space) * 7);
+  }
+
+  /* TODO: Extract into component */
+  .TrialCard .TrialCard__vote-again-button {
+    width: 156px;
+  }
+}

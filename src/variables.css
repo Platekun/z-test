@@ -1,0 +1,35 @@
+:root {
+  --space: 4px;
+  --transition-time: 0.1s;
+  --appbar-height: calc(var(--space) * 19);
+
+  --font-family: Lato, Arial, Helvetica, sans-serif;
+  --font-weight-light: 300;
+  --font-weight-book: 400;
+  --font-weight-bold: 700;
+
+  --zindex-appbar: 80;
+  --zindex-banner: 90;
+  --zindex-overlay: 90;
+  --zindex-drawer: 100;
+}
+
+@media screen and (min-width: 500px) {
+  :root {
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --appbar-height: calc(var(--space) * 21);
+  }
+}
+
+/* * {
+  border: 1px solid violet;
+} */

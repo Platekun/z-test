@@ -1,0 +1,91 @@
+.Home.Home--animate {
+  animation-name: fadeIn;
+  animation-duration: 180ms;
+}
+
+.Home[data-state="failure"] {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 calc(var(--space) * 4);
+}
+
+.Home[data-state="failure"] .Home__error-message {
+  --font-size: 18px;
+  --margin-bottom: calc(var(--space) * 4);
+
+  color: var(---mirage-shaft);
+  font-size: var(--font-size);
+  text-align: center;
+  margin-bottom: var(--margin-bottom);
+}
+
+.Home[data-state="failure"] .Home_error-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.Home[data-state="failure"] button {
+  --pading: calc(var(--space) * 2) calc(var(--space) * 4);
+  --background-color: var(--java);
+
+  background-color: var(--background-color);
+  transition: ease-in background-color var(--transition-time);
+  border: none;
+  padding: var(--pading);
+}
+
+.Home[data-state="failure"] button:hover,
+.Home[data-state="failure"] button:focus {
+  --background-color: var(--java-dark);
+}
+
+.Home[data-state="failure"] button:active {
+  --background-color: var(--java-darkness);
+}
+
+.Home[data-state="failure"] button span {
+  --font-size: 16px;
+
+  color: white;
+  font-size: var(--font-size);
+}
+
+@media screen and (min-width: 480px) {
+  .Home[data-state="failure"] .Home__error-message {
+    --font-size: 22px;
+    --margin-bottom: calc(var(--space) * 5);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .Home[data-state="failure"] .Home__error-message {
+    --font-size: 28px;
+    --margin-bottom: calc(var(--space) * 6);
+  }
+
+  .Home[data-state="failure"] button {
+    --pading: calc(var(--space) * 3) calc(var(--space) * 5);
+  }
+
+  .Home[data-state="failure"] button span {
+    --font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .Home {
+    height: 100vh;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

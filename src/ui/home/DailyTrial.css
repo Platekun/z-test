@@ -1,0 +1,418 @@
+.DailyTrial {
+  --vertical-padding: calc(var(--space) * 4);
+  --horizontal-padding: calc(var(--space) * 3);
+  --section-height: 443px;
+
+  position: relative;
+  height: var(--section-height);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.DailyTrial > .Wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 767px) {
+  .DailyTrial > .Wrapper {
+    max-width: 350px;
+  }
+}
+
+.DailyTrial .DailyTrial__content .Wrapper {
+  padding: var(--vertical-padding) var(--horizontal-padding);
+}
+
+.DailyTrial .DailyTrial__trial {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.DailyTrial .DailyTrial__content {
+  width: 100%;
+}
+
+.DailyTrial .blurred {
+  backdrop-filter: blur(20px);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.DailyTrial .DailyTrial__title {
+  font-size: 14px;
+  margin: 0;
+  color: white;
+  font-weight: var(--font-weight-light);
+}
+
+.DailyTrial .DailyTrial__person-name {
+  --font-size: 20px;
+
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-book);
+}
+
+.DailyTrial .DailyTrial__thank-you-message {
+  font-weight: var(--font-weight-book);
+}
+
+.DailyTrial a:link {
+  text-decoration: underline;
+}
+
+.DailyTrial .DailyTrial__footer {
+  --footer-height: calc(var(--appbar-height) / 2);
+
+  width: 100%;
+  height: var(--footer-height);
+}
+
+.DailyTrial[data-state="thankYou"] .DailyTrial__footer,
+.DailyTrial[data-state="failedToSaveVote"] .DailyTrial__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: var(--vertical-padding);
+  margin-top: calc(var(--space) * 4);
+}
+
+.DailyTrial .DailyTrial__voting-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: inherit;
+}
+
+.DailyTrial .DailyTrial__voting-button {
+  background-color: var(--background-color);
+  height: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: ease-in background-color var(--transition-time);
+}
+
+.DailyTrial .DailyTrial__voting-button svg {
+  --svg-height: calc(var(--space) * 4);
+
+  height: var(--svg-height);
+}
+
+.DailyTrial .DailyTrial__voting-button:first-child {
+  --background-color: var(--java-faded);
+
+  border-bottom-left-radius: var(--space);
+}
+
+.DailyTrial .DailyTrial__voting-button:first-child:hover,
+.DailyTrial .DailyTrial__voting-button:first-child:focus {
+  --background-color: var(--java-dark);
+}
+
+.DailyTrial .DailyTrial__voting-button:first-child:active {
+  --background-color: var(--java-darkness);
+}
+
+.DailyTrial .DailyTrial__voting-button:last-child {
+  --background-color: var(--my-sin-faded);
+
+  border-bottom-right-radius: var(--space);
+}
+
+.DailyTrial .DailyTrial__voting-button:last-child:hover,
+.DailyTrial .DailyTrial__voting-button:last-child:focus {
+  --background-color: var(--my-sin-dark);
+}
+
+.DailyTrial .DailyTrial__voting-button:last-child:active {
+  --background-color: var(--my-sin-darkness);
+}
+
+/* TODO: Extract into component */
+.DailyTrial .DailyTrial__vote-again-button {
+  --color: white;
+  --pading: calc(var(--space) * 2) calc(var(--space) * 3);
+
+  border: 1px solid var(--color);
+  background-color: transparent;
+  color: var(--color);
+  padding: var(--pading);
+}
+
+.DailyTrial .DailyTrial__closing-in {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: calc(var(--appbar-height) / 2);
+  display: flex;
+}
+
+.DailyTrial .DailyTrial__closing-in p {
+  font-weight: var(--font-weight-book);
+  margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.DailyTrial .DailyTrial__closing-in .DailyTrial__time-passed {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  min-width: fit-content;
+}
+
+.DailyTrial .DailyTrial__closing-in .DailyTrial__time-passed p {
+  color: white;
+  font-size: 12px;
+  padding-right: calc(var(--space) * 2);
+  justify-content: flex-end;
+  text-transform: uppercase;
+}
+
+.DailyTrial .DailyTrial__closing-in .DailyTrial__time-passed {
+  position: relative;
+}
+
+.DailyTrial .DailyTrial__closing-in .DailyTrial__time-passed:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border-left: 6px solid rgba(0, 0, 0, 0.5);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+.DailyTrial .DailyTrial__closing-in .DailyTrial__time-passed:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100px;
+  border-left: -89px solid #fff;
+  border-top: -89px solid transparent;
+  border-bottom: -89px solid transparent;
+}
+
+.DailyTrial .DailyTrial__closing-in .DailyTrial__time-left {
+  background-color: rgba(255, 255, 255, 0.6);
+  flex: 1;
+}
+
+.DailyTrial .DailyTrial__closing-in .DailyTrial__time-left p {
+  --font-size: 18px;
+
+  font-size: var(--font-size);
+  justify-content: start;
+  padding-left: calc(var(--space) * 2);
+}
+
+.DailyTrial .DailyTrial__closing-in .DailyTrial__time-left p span {
+  --font-size: 18px;
+
+  font-weight: var(--font-weight-light);
+}
+
+.DailyTrial a,
+.DailyTrial a:link {
+  font-size: 12px;
+}
+
+.DailyTrial .DailyTrial__title,
+.DailyTrial a,
+.DailyTrial a:link,
+.DailyTrial .DailyTrial__topic,
+.DailyTrial .DailyTrial__verdict,
+.DailyTrial__thank-you-message,
+.DailyTrial .DailyTrial__vote-again-button span {
+  --color: white;
+
+  color: var(--color);
+  transition: ease-in border-color var(--transition-time),
+    ease-in color var(--transition-time);
+}
+
+.DailyTrial .DailyTrial__title--faded {
+  opacity: 0.7;
+}
+
+.DailyTrial .DailyTrial__verdict {
+  --font-size: 16px;
+
+  margin: 0;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size);
+}
+
+.DailyTrial__more-info {
+  margin-top: 0;
+}
+
+.DailyTrial .DailyTrial__title,
+.DailyTrial a,
+.DailyTrial a:link,
+.DailyTrial .DailyTrial__topic,
+.DailyTrial__thank-you-message,
+.DailyTrial .DailyTrial__vote-again-button span {
+  font-weight: var(--font-weight-light);
+}
+
+.DailyTrial a:hover,
+.DailyTrial a:focus,
+.DailyTrial .DailyTrial__vote-again-button:hover,
+.DailyTrial .DailyTrial__vote-again-button:focus {
+  --color: rgba(255, 255, 255, 0.8);
+}
+
+.DailyTrial a:active,
+.DailyTrial .DailyTrial__vote-again-button:active {
+  --color: rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (min-width: 768px) {
+  .DailyTrial {
+    --vertical-padding: calc(var(--space) * 7);
+    --horizontal-padding: calc(var(--space) * 6);
+    --section-height: 50vh;
+
+    min-height: 600px;
+    position: relative;
+  }
+
+  .DailyTrial .Wrapper,
+  .DailyTrial .DailyTrial__article-body-wrapper {
+    padding: 0;
+    height: 100%;
+  }
+
+  .DailyTrial .DailyTrial__article-body-wrapper {
+    max-width: unset;
+  }
+
+  .DailyTrial .DailyTrial__trial {
+    justify-content: unset;
+  }
+
+  .DailyTrial__content-container {
+    position: relative;
+  }
+
+  .DailyTrial .DailyTrial__content {
+    --height: 380px;
+
+    width: 498px;
+    height: var(--height);
+  }
+
+  .DailyTrial[data-state="prompt"] .DailyTrial__content {
+    --height: 330px;
+  }
+
+  .DailyTrial .DailyTrial .DailyTrial__article-body-wrapper {
+    padding-top: var(--vertical-padding);
+    padding-left: var(--horizontal-padding);
+    padding-right: var(--horizontal-padding);
+  }
+
+  .DailyTrial__more-info {
+    margin-bottom: calc(var(--space) * 7);
+  }
+
+  .DailyTrial a,
+  .DailyTrial a:link {
+    font-size: 14px;
+  }
+
+  .DailyTrial .DailyTrial__thank-you-footer {
+    margin-top: calc(var(--space) * 5);
+  }
+
+  .DailyTrial .DailyTrial__thank-you-message {
+    margin-top: calc(var(--space) * 5);
+  }
+
+  .DailyTrial .DailyTrial__thank-you-message,
+  .DailyTrial .DailyTrial__topic {
+    font-size: 21px;
+  }
+
+  .DailyTrial .DailyTrial__person-name {
+    --font-size: 40px;
+  }
+
+  .DailyTrial .DailyTrial__closing-in {
+    height: 50px;
+  }
+
+  .DailyTrial .DailyTrial__verdict {
+    --font-size: 20px;
+  }
+
+  .DailyTrial .DailyTrial__footer {
+    --footer-height: calc(var(--appbar-height) / 1.5);
+  }
+
+  .DailyTrial .DailyTrial__voting-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .DailyTrial .DailyTrial__voting-button svg {
+    --svg-height: calc(var(--space) * 7);
+  }
+
+  .DailyTrial .DailyTrial__vote-again-button {
+    --padding: calc(var(--space) * 3) calc(var(--space) * 4);
+  }
+
+  .DailyTrial .DailyTrial__closing-in .DailyTrial__time-left p {
+    --font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .DailyTrial {
+    --vertical-padding: calc(var(--space) * 8);
+    --horizontal-padding: calc(var(--space) * 7);
+    --section-height: 100vh;
+
+    min-height: 600px;
+  }
+
+  .DailyTrial .DailyTrial__content {
+    --height: 440px;
+  }
+
+  .DailyTrial[data-state="prompt"] .DailyTrial__content {
+    --height: calc(440px - calc(var(--space) * 20));
+  }
+
+  .DailyTrial .DailyTrial__footer {
+    --footer-height: calc(var(--space) * 20);
+  }
+
+  .DailyTrial .DailyTrial__voting-button svg {
+    --svg-height: calc(var(--space) * 9);
+  }
+
+  .DailyTrial .DailyTrial__person-name {
+    --font-size: 60px;
+  }
+
+  .DailyTrial .DailyTrial__vote-again-button {
+    width: 100%;
+    max-width: 201px;
+  }
+
+  .DailyTrial .DailyTrial__vote-again-button span {
+    font-size: 20px;
+  }
+}

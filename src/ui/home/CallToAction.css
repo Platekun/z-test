@@ -1,0 +1,104 @@
+.CallToAction {
+  --vertical-padding: calc(var(--space) * 4);
+  --horizontal-padding: calc(var(--space) * 3);
+}
+
+.CallToAction .CallToAction__content {
+  background-color: var(--gallery);
+}
+
+.CallToAction .CallToAction__title {
+  text-align: center;
+}
+
+.CallToAction .CallToAction__title,
+.CallToAction .CallToAction__message {
+  color: var(--mine-shaft);
+}
+
+.CallToAction .CallToAction__message {
+  line-height: 22px;
+}
+
+.CallToAction .CallToAction__title span {
+  font-weight: var(--font-weight-light);
+}
+
+.CallToAction__button {
+  display: none;
+}
+
+@media screen and (max-width: 939px) {
+  .CallToAction .Wrapper {
+    padding: var(--vertical-padding) var(--horizontal-padding);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .CallToAction {
+    margin-top: calc(var(--space) * 8);
+  }
+
+  .CallToAction .CallToAction__title {
+    font-size: 28px;
+  }
+
+  .CallToAction .CallToAction__message {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .CallToAction {
+    margin-top: calc(var(--space) * 8);
+  }
+
+  .CallToAction .CallToAction__content {
+    --horizontal-padding: calc(var(--space) * 7);
+
+    padding: var(--vertical-padding) var(--horizontal-padding);
+  }
+
+  .CallToAction .CallToAction__title {
+    text-align: unset;
+  }
+
+  .CallToAction .CallToAction__title,
+  .CallToAction .CallToAction__message {
+    margin: 0;
+  }
+
+  .CallToAction .CallToAction__message {
+    font-size: 16px;
+  }
+
+  .CallToAction .CallToAction__title span {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .CallToAction .CallToAction__title strong {
+    font-size: 37px;
+    line-height: 41px;
+  }
+
+  .CallToAction .CallToAction__content-wrapper {
+    display: grid;
+    grid-template-columns: 190px 1fr auto;
+    column-gap: calc(var(--space) * 4);
+    align-items: center;
+  }
+
+  .CallToAction__button {
+    display: block;
+    background: transparent;
+    border: none;
+    width: calc(var(--space) * 8);
+    height: calc(var(--space) * 8);
+    padding: 0;
+  }
+
+  .CallToAction__button svg {
+    fill: var(--mirage-shaft);
+  }
+}
